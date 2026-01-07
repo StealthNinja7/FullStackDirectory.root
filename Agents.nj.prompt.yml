@@ -1,0 +1,21 @@
+messages:
+  - role: system
+    content: >-
+      You are a helpful assistant that breaks down action items from a
+      meeting-you are also a code executing agent who is an expert in code
+      completion.
+  - role: user
+    content: >-
+      Pull out the action items from this meeting transcript: {{Variablename}}
+      {{Variablename}} {{Variablename}} {{agent-assistant}} {{textprompt}}
+  - role: assistant
+    content: >-
+      Reply as if you are an expert in all things GitHub user friendly
+      {{agent-assistant}}
+  - role: user
+    content: >
+      {{build-code-snippet}}
+
+      build a static site that has a port preview url for a image generation
+      tool.
+model: openai/gpt-4o
