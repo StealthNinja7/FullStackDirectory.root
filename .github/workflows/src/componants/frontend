@@ -1,0 +1,11 @@
+- Frontend: Next.js (App Router), React 18+, TypeScript // 
+- Backend: Next.js API routes (or app route handlers) running on Node 18+ // 
+- DB: MongoDB Atlas (mongodb native driver) — expect MONGODB_URI //
+- Auth: NextAuth.js (JWT/session) — expect NEXTAUTH_URL, NEXTAUTH_SECRET // 
+- LLMs: Hugging Face Inference API (primary) + option to run transformers/pipelines on server (via python microservice)
+— expect HUGGINGFACE_API_KEY, HUGGINGFACE_MODEL // 
+- Vector/search: MongoDB Atlas Vector Search or MongoDB + embedded vectors stored in a collection // 
+- Caching/queue (optional): Redis (REDIS_URL) for background jobs // 
+- Query client: @tanstack/react-query (React Query) // 
+- Theme: next-themes (Tailwind recommended) // 
+- Expected env variables: MONGODB_URI, HUGGINGFACE_API_KEY, HUGGINGFACE_MODEL, NEXTAUTH_URL, NEXTAUTH_SECRET, REDIS_URL (optional)
