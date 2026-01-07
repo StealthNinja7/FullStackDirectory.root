@@ -1,0 +1,29 @@
+  embed: async (text: string) => {
+    const body = { text };
+    return apiFetch<EmbeddingResponse>("/api/llm/embed", {
+      method: "POST",
+      body: JSON.stringify(body),
+    });
+  },
+
+  saveDocument: async (doc: SaveDocPayload) => {
+    return apiFetch<{ id: string; ok: boolean }>("/api/docs", {
+      method: "POST",
+      body: JSON.stringify(doc),
+    });
+  },
+
+  fetchDocument: async (id: string) => {
+    return apiFetch<any>(`/api/docs/${encodeURIComponent(id)}`, {
+      method: "GET",
+    });
+  },
+
+  searchDocuments: async (query: string, topK = 10) => {
+    const body = { query, topK };
+    return apiFetch<SearchResult[]>("/api/docs/search", {
+      method: "POST",
+      body: JSON.stringify(body),
+    });
+  },
+};
