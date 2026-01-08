@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fullstack-prod
+  labels:
+    name: fullstack-prod
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: fullstack-prod
+data:
+  NODE_ENV: production
+  LOG_LEVEL: info
+  API_PORT: "3000"
+  DATABASE_MAX_CONNECTIONS: "20"
+  REDIS_POOL_SIZE: "10"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: app-secrets
+  namespace: fullstack-prod
+type: Opaque
+stringData:
+  DATABASE_URL: "postgresql://dbadmin:PASSWORD@rds-endpoint:5432/appdb"
+  REDIS_URL: "rediss://:PASSWORD@redis-endpoint:6379"
+  JWT_SECRET: "your-jwt-secret-here"
+  API_KEY: "your-api-key-here"

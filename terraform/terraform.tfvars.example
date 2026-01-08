@@ -1,0 +1,40 @@
+# AWS Region
+aws_region = "us-east-1"
+
+# Environment and Project Configuration
+environment  = "prod"
+project_name = "fullstack-app"
+
+# VPC Configuration
+vpc_cidr = "10.0.0.0/16"
+availability_zones = [
+  "us-east-1a",
+  "us-east-1b",
+  "us-east-1c"
+]
+enable_nat_gateway = true
+
+# EKS Cluster Configuration
+eks_cluster_version = "1.28"
+eks_desired_size    = 3
+eks_min_size        = 1
+eks_max_size        = 10
+eks_instance_types  = ["t3.medium"]
+
+# RDS Configuration
+rds_instance_class     = "db.t3.small"
+rds_allocated_storage  = 20
+
+# Redis Configuration
+redis_node_type              = "cache.t3.micro"
+redis_num_cache_clusters     = 2
+
+# Monitoring
+enable_monitoring = true
+
+# Custom Tags
+tags = {
+  CostCenter     = "engineering"
+  Owner          = "platform-team"
+  TerraformManaged = "true"
+}
